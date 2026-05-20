@@ -2,24 +2,34 @@
 <html>
 
 <head>
-    <title>Test Login</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Login</title>
 </head>
 
-<body>
+<body style="background:black; color:white; font-family:Arial; text-align:center; padding-top:100px;">
 
-    <div class="login-box">
+    <h1>Login</h1>
 
-        <h1>Login</h1>
+    <input type="text" placeholder="Gebruikersnaam">
+    <br><br>
+    <input type="password" placeholder="Wachtwoord">
+    <br><br>
 
-        <input type="text" placeholder="Gebruikersnaam">
+    <button onclick="login()">Login</button>
 
-        <input type="password" placeholder="Wachtwoord">
+    <script>
+        function login() {
+            const user = document.querySelector("input[type='text']").value;
+            const pass = document.querySelector("input[type='password']").value;
 
-        <button>Login</button>
+            if (user === "admin" && pass === "1234") {
+                localStorage.setItem("user", user);
+                window.location.href = "home.html";
+            } else {
+                alert("Foute login");
+            }
+        }
+    </script>
 
-    </div>
-<script src="script.js"></script>
 </body>
 
 </html>
